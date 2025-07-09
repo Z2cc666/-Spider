@@ -164,7 +164,10 @@ class EconomicDailyIncrementalSpider:
             return []
 
     def process_article(self, article_url, date_str, version_code, version_name, title):
-        """处理文章"""
+        """处理文章
+        跳过已处理的文章
+        
+        """
         # 检查是否已处理过
         if article_url in self.processed_articles:
             logging.info(f"    跳过已处理的文章: {title}")
